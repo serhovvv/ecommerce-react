@@ -1,9 +1,18 @@
 import { ShoppingCart, User } from "lucide-react";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setSearchTerm } from "../feautures/products/ProductSlice";
+import Modal from "./Modal";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const searchTerm = useSelector((state) => state.product.searchTerm);
+  // cart
+  const cartItems = useSelector((state) => state.cart.items);
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const handleUser = () => {
     setIsOpen(!isOpen);
   };
@@ -37,10 +46,18 @@ const NavBar = () => {
               }`}
             >
               <li>
-                <Link to="/">Sign</Link>
+                <button
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setIsOpen(false);
+                  }}
+                  className="cursor-pointer"
+                >
+                  Sign
+                </button>
               </li>
               <li>
-                <Link to="/">My Account</Link>
+                <button className="cursor-pointer">My Account</button>
               </li>
             </div>
             <User
@@ -70,16 +87,26 @@ const NavBar = () => {
               type="text"
               placeholder="Search Product..."
               className="bg-zinc-100 rounded-md border border-zinc-200 focus:outline-none py-3 px-3 w-full"
+              value={searchTerm}
+              onChange={(e) => dispatch(setSearchTerm(e.target.value))}
             />
           </form>
-          <Link>
-            <ShoppingCart
-              size={54}
-              className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full"
-            />
-          </Link>
+          <div className="relative">
+            <Link to={"/cart"}>
+              <ShoppingCart
+                size={54}
+                className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full"
+              />
+              {itemCount > 0 && (
+                <span className="absolute -top-2 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 items-center flex justify-center">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+          </div>
         </nav>
       </>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   );
 };

@@ -3,10 +3,10 @@ import React from "react";
 
 function ProductCard({ product }) {
   return (
-    <Link>
+    <Link to={`/product/${product.id}`}>
       <div className="shadow-lg rounded-md cursor-pointer flex flex-col justify-center ">
         <div className="flex justify-center object-cover">
-          <img src={product.image} className=" h-48 " />
+          <img src={product.image} className="h-48 p-4" />
         </div>
         <div className="bg-gray-50 p-4">
           <h2 className="font-semibold texl-lg my-4">{product.title}</h2>

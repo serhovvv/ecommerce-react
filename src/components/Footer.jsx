@@ -92,7 +92,7 @@ function Footer() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold my-4">Category</h2>
+              <h2 className="text-2xl font-semibold my-4">Contacts</h2>
               <p>v.Humnyshche, Volyn Oblast</p>
               <p>+14882-2888-1337</p>
               <p>+14882-2888-7331</p>

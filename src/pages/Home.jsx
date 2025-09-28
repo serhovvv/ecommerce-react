@@ -1,16 +1,20 @@
 import React from "react";
 import ProductGrid from "../components/ProductGrid";
 import Footer from "../components/Footer";
+import { useDispatch } from "react-redux";
+import { setSelectedCategory } from "../feautures/products/ProductSlice";
 
 const categories = [
   "All",
-  "Graphic Cards",
-  "Laptop",
+  "Graphic cards",
+  "Laptops",
   "Monitors",
-  "Power Supply",
+  "Power supply",
 ];
 
 function Home() {
+  const dispatch = useDispatch();
+
   return (
     <div>
       <div className="bg"></div>
@@ -20,6 +24,7 @@ function Home() {
             return (
               <button
                 key={cat}
+                onClick={() => dispatch(setSelectedCategory(cat))}
                 className="bg-gray-300 py-2 px-4 rounded-md text-black active:scale-105 hover:bg-zinc-400 transition-all ease-in"
               >
                 {cat}
