@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     items: [],
+    searchTerm: "",
 }
 
 const cartSlice = createSlice({
@@ -27,7 +28,6 @@ const cartSlice = createSlice({
                 item.quantity = action.payload.quantity
             }
         }
-
     }
 })
 

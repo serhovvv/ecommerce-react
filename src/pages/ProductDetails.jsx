@@ -29,8 +29,8 @@ function ProductDetails() {
           <ArrowLeft className="pr-1" />
           Back to Products
         </Link>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="shadow-md p-4 rounded w-[600px]">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center justify-center">
+          <div className="shadow-md p-4 rounded lg:w-[600px] w-[100%] ">
             <img src={product.image} alt={product.title} />
           </div>
           <div>
@@ -40,7 +40,7 @@ function ProductDetails() {
               <span className="text-3xl font-bold">${product.price}</span>
             </div>
             <div className="mb-6">
-              <h3 className="font-semibold mb-2 ">Categoru</h3>
+              <h3 className="font-semibold mb-2 ">Category</h3>
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm">
                 {product.category}
               </span>

@@ -5,7 +5,7 @@ const initialState = {
     items: products,
     filteredItems: products, 
     searchTerm: "",
-    selectedCategory: "All"
+    selectedCategory: "All"  
 
 }
 

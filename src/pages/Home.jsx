@@ -19,7 +19,7 @@ function Home() {
     <div>
       <div className="bg"></div>
       <div className="container mx-auto my-10 px-4">
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           {categories.map((cat) => {
             return (
               <button

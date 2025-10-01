@@ -1,12 +1,17 @@
 import { X } from "lucide-react";
 import React from "react";
+import { useDispatch } from "react-redux";
 
 const Modal = ({ isOpen, onClose }) => {
   if (!isOpen) {
     return null;
   }
+  const dispatch = useDispatch();
   return (
-    <div className="fixed bg-zinc-500/50 inset-0 flex items-center justify-center">
+    <div
+      className="fixed bg-zinc-500/50 inset-0 flex items-center justify-center"
+      onClick={onClose}
+    >
       <div className="w-[90%] max-w-lg bg-white shadow-lg p-6 rounded-lg">
         <div className="flex py-3 justify-between border-b border-zinc-500">
           <h2 className="text-lg font-semibold">Sign Up</h2>
